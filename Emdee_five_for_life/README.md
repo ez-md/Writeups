@@ -1,9 +1,9 @@
 # Initial Recon
-!(pix/1.png)
+![](pix/1.png)
 
 After visiting the webpage, it asks to enter the MD5 sum of the given string and submit it through the input field.
 
-!(pix/11.png)
+![](pix/11.png)
 
 Using bash terminal I MD5 encrypt the string.
 ```
