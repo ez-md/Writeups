@@ -1,0 +1,32 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_blog.txt
+START_TIME: Sun Mar 28 14:23:55 2021
+URL_BASE: http://10.10.166.32/
+WORDLIST_FILES: /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt
+
+-----------------
+
+GENERATED WORDS: 87568
+
+---- Scanning URL: http://10.10.166.32/ ----
++ http://10.10.166.32/rss (CODE:301|SIZE:0)
++ http://10.10.166.32/login (CODE:302|SIZE:0)
+==> DIRECTORY: http://10.10.166.32/0/
+==> DIRECTORY: http://10.10.166.32/feed/
++ http://10.10.166.32/atom (CODE:301|SIZE:0)
+==> DIRECTORY: http://10.10.166.32/wp-content/
++ http://10.10.166.32/admin (CODE:302|SIZE:0)
++ http://10.10.166.32/rss2 (CODE:301|SIZE:0)
+==> DIRECTORY: http://10.10.166.32/wp-includes/
++ http://10.10.166.32/rdf (CODE:301|SIZE:0)
++ http://10.10.166.32/page1 (CODE:301|SIZE:0)
++ http://10.10.166.32/' (CODE:301|SIZE:0)
++ http://10.10.166.32/dashboard (CODE:302|SIZE:0)
++ http://10.10.166.32/%20 (CODE:301|SIZE:0)
+==> DIRECTORY: http://10.10.166.32/2020/
+==> DIRECTORY: http://10.10.166.32/wp-admin/
