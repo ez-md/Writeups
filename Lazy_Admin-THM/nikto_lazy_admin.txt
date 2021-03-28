@@ -1,0 +1,34 @@
+- Nikto v2.1.6/2.1.5
++ Target Host: 10.10.4.242
++ Target Port: 80
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ GET Server may leak inodes via ETags, header found with file /, inode: 2c39, size: 59878d86c765e, mtime: gzip
++ HEAD Apache/2.4.18 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ OSVDB-3233: GET /icons/README: Apache default file found.
+- Nikto v2.1.6/2.1.5
++ Target Host: 10.10.4.242
++ Target Port: 80
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ GET Cookie sweetrice created without the httponly flag
++ HEAD /content/as: Apache/2.4.18 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ FKUXJXOV Web Server returns a valid response with junk HTTP methods, this may cause false positives.
++ GET /content/as/index.php?option=search&searchword=<script>alert(document.cookie);</script>: Mambo Site Server 4.0 build 10 is vulnerable to Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-2820: GET /content/as/index.php?dir=<script>alert('Vulnerable')</script>: Auto Directory Index 1.2.3 and prior are vulnerable to XSS attacks.
++ OSVDB-50552: GET /content/as/index.php?file=Liens&op=\"><script>alert('Vulnerable');</script>: Nuked-klan 1.3b is vulnerable to Cross Site Scripting (XSS). CA-2000-02.
++ GET /content/as/index.php?action=storenew&username=<script>alert('Vulnerable')</script>: SunShop is vulnerable to Cross Site Scripting (XSS) in the signup page. CA-200-02.
++ GET /content/as/index.php/\"><script><script>alert(document.cookie)</script><: eZ publish v3 and prior allow Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-50553: GET /content/as/index.php/content/search/?SectionID=3&SearchText=<script>alert(document.cookie)</script>: eZ publish v3 and prior allow Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-50553: GET /content/as/index.php/content/advancedsearch/?SearchText=<script>alert(document.cookie)</script>&PhraseSearchText=<script>alert(document.cookie)</script>&SearchContentClassID=-1&SearchSectionID=-1&SearchDate=-1&SearchButton=Search: eZ publish v3 and prior allow Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-38019: GET /content/as/?mod=<script>alert(document.cookie)</script>&op=browse: Sage 1.0b3 is vulnerable to Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-25497: GET /content/as/index.php?rep=<script>alert(document.cookie)</script>: GPhotos index.php rep Variable XSS.
++ OSVDB-8193: GET /content/as/index.php?module=ew_filemanager&type=admin&func=manager&pathext=../../../etc: EW FileManager for PostNuke allows arbitrary file retrieval.
++ OSVDB-12606: GET /content/as/index.php?err=3&email=\"><script>alert(document.cookie)</script>: MySQL Eventum is vulnerable to XSS in the email field.
++ OSVDB-2790: GET /content/as/index.php?vo=\"><script>alert(document.cookie);</script>: Ralusp Sympoll 1.5 is vulnerable to Cross Site Scripting (XSS). CA-2000-02.
++ OSVDB-3268: GET /content/as/lib/: Directory indexing found.
++ OSVDB-3092: GET /content/as/lib/: This might be interesting...

@@ -1,0 +1,65 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_lazy_admin.txt
+START_TIME: Sat Mar 27 16:25:01 2021
+URL_BASE: http://10.10.4.242/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://10.10.4.242/ ----
+==> DIRECTORY: http://10.10.4.242/content/
++ http://10.10.4.242/index.html (CODE:200|SIZE:11321)
++ http://10.10.4.242/server-status (CODE:403|SIZE:276)
+
+---- Entering directory: http://10.10.4.242/content/ ----
+==> DIRECTORY: http://10.10.4.242/content/_themes/
+==> DIRECTORY: http://10.10.4.242/content/as/
+==> DIRECTORY: http://10.10.4.242/content/attachment/
+==> DIRECTORY: http://10.10.4.242/content/images/
+==> DIRECTORY: http://10.10.4.242/content/inc/
++ http://10.10.4.242/content/index.php (CODE:200|SIZE:2197)
+==> DIRECTORY: http://10.10.4.242/content/js/
+
+---- Entering directory: http://10.10.4.242/content/_themes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/as/ ----
++ http://10.10.4.242/content/as/index.php (CODE:200|SIZE:3674)
+==> DIRECTORY: http://10.10.4.242/content/as/js/
+==> DIRECTORY: http://10.10.4.242/content/as/lib/
+
+---- Entering directory: http://10.10.4.242/content/attachment/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/inc/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/as/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+---- Entering directory: http://10.10.4.242/content/as/lib/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Sat Mar 27 16:49:17 2021
+DOWNLOADED: 13836 - FOUND: 4

@@ -1,0 +1,1 @@
+# Nmap 7.91 scan initiated Sat Mar 27 16:25:57 2021 as: nmap -sC -sV -p- -oN nmap_lazy_admin.txt 10.10.4.242
