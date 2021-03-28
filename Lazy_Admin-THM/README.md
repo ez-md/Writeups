@@ -14,11 +14,11 @@
     - The webpage is the default apache page. Something seems to be missing. 
     
 - Using dirb, lets find some hidden directories. I used the common.txt wordlist found in kali /usr/share/wordlists/dirb/common.txt
-```
-- dirb http://<IP> <PATH TO WORDLIST>
-```
-![](pix/dirb.png)
-- Some interesting pages where found 
+- ```
+    dirb http://<IP> <PATH TO WORDLIST>
+    ```
+    ![](pix/dirb.png)
+- Some interesting pages were found 
     - http://<IP>/content/ shows the webpage uses SweetRice CMS
     - http://<IP>/content/as/ shows login page. admin:admin does not work.
     - http://<IP>/content/inc/ shows the directory index
@@ -51,7 +51,7 @@
 
 - After doing some research, it looks like we can upload PHP in the 'Ads' section and pop a reverse shell by visiting that page.
 
-- I went with the php reverse shell provied by Kali linux in ```/usr/share/webshells/php/php-reverse-shell.php```
+- I went with the php reverse shell provided by Kali linux in ```/usr/share/webshells/php/php-reverse-shell.php```
     - Make sure to change the ip and port to your local machine.
 
 - Copy the content of php-reverse-shell.php and paste it into the webpage. Name it whatever you want (don not add .php, it will automatically get added). Click done.
@@ -68,6 +68,45 @@ The php code gets uploaded to http://IP/content/inc/ads/shell.php
 - ## BAMM! got a shell
     ![](pix/shell3.png)
     
+    - To upgrade the shell use the following command
+    ```
+    python -c 'import pty; pty.spawn("/bin/bash")'
+    ```
+- In /home/itguy the user.txt contains the first flag.
+
+  ![](pix/flag1.png)  
+
+
+
+## Privilege Escalation:
+
+
+- The root.txt file is in the root directory which we do not have permission to view. Time to escalate to root.
+
+- ```sudo -l``` 
+    - shows that www-data can run ```/usr/bin/perl /home/itguy/backup.pl``` without a password. 
+
+        ![](pix/priv1.png)
+- Inspecting backup.pl show that it is not writable, but it calls a script in ```/etc/copy.sh``` which has universal write permission. 
+ - we can modify ```copy.sh``` script to spawn a root shell because it will be used by pear using sudo. 
+    ![](pix/priv2.png)
+
+- This machine doesn't have vim, vi, or nano.. So we can just echo our command into the file.
+
+- ```
+   echo '/bin/bash' > /etc/copy.sh
+    ```
+
+- cat /etc/copy.sh to verify then EXPLOIT
+
+- ```
+    sudo /usr/bin/perl /home/itguy/backup.pl
+    ```
+    ![](pix/priv3.png)
+
+- Now that we are root, simply cat /root/root.txt for the flag
+
+![](pix/priv4.png)
 
 
 
