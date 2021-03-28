@@ -106,7 +106,7 @@ The php code gets uploaded to http://IP/content/inc/ads/shell.php
 
 - Now that we are root, simply cat /root/root.txt for the flag
 
-![](pix/priv4.png)
+    ![](pix/priv4.png)
 
 
 
