@@ -1,4 +1,4 @@
-#  BlueMoon: 2021 Writeup
+#  BlueMoon: 2021 Writeup, Walkthrough
 
 ## Enumeration
 - Run a nmap scan to see what ports are open and what services are running.
